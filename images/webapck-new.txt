@@ -1,0 +1,37 @@
+1. npm init -y
+
+2. npm install --save-dev (development dependecy) -> 
+    1. webpack -> webpack webpack-cli
+    2. webpack-dev-server
+    3. HTML -> html-webpack-plugin
+        for images -> html-loader
+    4. CSS -> style-loader css-loader
+        import using js
+    5. images -> 
+        1. url() -> already inlcuded in css
+        2. images with src in html -> html-loader
+            change config file
+        3. images with js -> 
+            add 'asset/resource' in config file
+    6. devtool: "eval-source-map" ' in config
+        matches code line no. in console
+
+
+3. webpack.config.js
+
+4. npx webpack (OR) use 'webpack-dev-server'
+
+5. npx webpack serve -> http://localhost:8080/
+
+6.  1.  "build": "webpack"
+        npm run build   ~   npx webpack
+        'building/bundling/compiling'
+    2.  "dev": "webpack serve"
+        npm run dev     ~   npx webpack serve
+        'start a dev server'
+    3.  "deploy": "git subtree push --prefix dist origin gh-pages"
+        npm run deploy
+
+
+
+note :  If you change the webpack config file while the dev server is running, it will not reflect those config changes. Use Ctrl + C in the terminal to kill it then rerun npx webpack serve to apply the new config.
