@@ -178,7 +178,6 @@ button {
 }
 
 .task-item button {
-    width: 50%;
     border: 1px solid #666;
     border-radius: 5px;
     background-color: #FCFAF8;
@@ -198,7 +197,7 @@ button {
 
 .form {
     background-color: #FCFAF8;
-    height: 300px;
+    height: 500px;
     width: 70%;
     border: 1px solid #A81F00;
     border-radius: 5px;
@@ -207,10 +206,10 @@ button {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
-#form-title {
+#form-title, #form-date {
     height: 20px;
     text-decoration: none;
     border: 1px solid #666;
@@ -223,7 +222,7 @@ button {
     flex-direction: column;
 }
 
-#form-desc, #form-title {
+#form-desc, #form-title, #form-date {
     width: 80%;
 }
 
@@ -249,4 +248,71 @@ button {
     color: #A81F00;
     padding: 5px 10px;
 }
-/* color: #A81F00; */
+
+.form-priority-div, .project-list-div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.form-priority-div select, .project-list-div select {
+    padding: 3px;
+}
+
+.project-input-div {
+    width: 80%;
+    height: 80px;
+    background-color: #FCFAF8;
+    border: 1px solid #A81F00;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;    
+}
+
+.project-input-top input {
+    width: 80%;
+}
+
+.project-input-bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.project-input-bottom button {
+    color: #A81F00;
+    background-color: white;
+    border: 1px solid #666;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-size: 13px;
+    width: 30%;
+}
+
+button {
+    overflow: hidden;
+}
+
+.sidebar p, .sidebar h3, .sidebar h2 {
+    overflow: hidden;
+}
+
+.sidebar-open-div {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 30px;
+    width: 30px;
+}
+
+.sidebar-open-div img {
+    height: 100%;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
