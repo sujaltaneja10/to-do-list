@@ -105,10 +105,59 @@ function updateTaskList(projectName = currentProject) {
   }
 }
 
-function createTaskItem(element, index) {
-  //   if (element === "INPUTFIELDNAME") {
-  //   }
+function createTaskItemPopUp(element) {
+  console.log(element);
 
+  const main = document.createElement("main");
+  main.classList.add("pop-up-element");
+  document.body.appendChild(main);
+
+  document.querySelector("main").classList.add("blur-main");
+
+  const title = element.title !== "" ? element.title : "(not specified)";
+  const desc =
+    element.description !== "" ? element.description : "(not specified)";
+  const date = element.dueDate !== "" ? element.dueDate : "(not specified)";
+  const priority =
+    element.priority !== "" ? element.priority : "(not specified)";
+  const project = element.project !== "" ? element.project : "(not specified)";
+
+  const cancelDiv = document.createElement("div");
+  cancelDiv.style = "display: flex; flex-direction: row-reverse;";
+  main.appendChild(cancelDiv);
+
+  const cancelText = document.createElement("p");
+  cancelText.textContent = "X";
+  cancelText.style = "width: 20px; height: 20px; font-size: 30px";
+  cancelDiv.appendChild(cancelText);
+
+  const titleDiv = document.createElement("div");
+  titleDiv.textContent = `Title: ${title}`;
+  main.appendChild(titleDiv);
+
+  const descDiv = document.createElement("div");
+  descDiv.textContent = `Description: ${desc}`;
+  main.appendChild(descDiv);
+
+  const dateDiv = document.createElement("div");
+  dateDiv.textContent = `Due Date: ${date}`;
+  main.appendChild(dateDiv);
+
+  const priorityDiv = document.createElement("div");
+  priorityDiv.innerText = `Priority: ${priority}`;
+  main.appendChild(priorityDiv);
+
+  const projectDiv = document.createElement("div");
+  projectDiv.innerText = `Project: ${project}`;
+  main.appendChild(projectDiv);
+
+  cancelText.addEventListener("click", () => {
+    main.style.display = "none";
+    document.querySelector("main").classList.remove("blur-main");
+  });
+}
+
+function createTaskItem(element, index) {
   const taskItem = document.createElement("div");
   taskItem.classList.add("main-item", "task-item", "task-list");
   taskItem.id = `${index}`;
@@ -148,9 +197,9 @@ function createTaskItem(element, index) {
   const hr = document.createElement("hr");
   hr.classList.add("task-list");
 
-  //   editButton.addEventListener("click", () => {
-  //     createTaskEntryForm("INPUTFIELDNAME");
-  //   });
+  editButton.addEventListener("click", () => {
+    createTaskItemPopUp(element);
+  });
 
   document
     .querySelector(".main-container")
